@@ -1,0 +1,427 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&display=swap');
+
+/* ================= BODY ================= */
+body {
+  cursor: default;
+  margin: 0;
+  background: #f8f6f3;
+  color: #111;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ================= NAV ================= */
+.tagline {
+  font-size: 22px;
+  color: #777;
+}
+
+
+nav {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 50px;
+  background: white;
+  border-bottom: 1px solid #eee;
+  transition: padding 0.3s ease;
+  z-index: 1000;
+}
+
+
+/* =====dash bord btn  */
+.dashboard-btn {
+  display: none; /* 🔥 default hidden */
+  padding: 6px 14px;
+  border: 1px solid rgba(34, 34, 32, 0.741);
+  background: transparent;
+  color: rgba(62, 62, 59, 0.689);
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.dashboard-btn:hover {
+  background: rgba(64, 64, 62, 0.142);
+  color: black;
+}
+
+
+/* smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* navbar transition */
+nav {
+  transition: all 0.3s ease;
+}
+
+/* shrink effect */
+nav.shrink {
+  padding: 10px 40px;
+  background: rgba(255,255,255,0.95);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* optional luxury effect */
+nav.shrink h1 {
+  font-size: 20px;
+}
+
+
+nav h1 {
+  font-size: 26px;
+  color: #111;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+.nav-right {
+  color: #111;
+  font-size: 18px;
+}
+
+#cart-count {
+  cursor: pointer;
+}
+
+.admin-btn {
+  margin-left: 15px;
+  padding: 6px 14px;
+  border: 1px solid rgba(34, 34, 32, 0.741);
+  background: transparent;
+  color: rgba(62, 62, 59, 0.689);
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.admin-btn:hover {
+  background: rgba(64, 64, 62, 0.142);
+  color: black;
+}
+
+/* ================= HERO ================= */
+.hero {
+  text-align: center;
+  padding: 120px 20px 80px;
+  background: white;
+}
+
+.hero h1 {
+  font-size: 60px;
+  font-family: 'Playfair Display', serif;
+  color: #111;
+}
+
+.hero button {
+  margin-top: 20px;
+  padding: 12px 30px;
+  background: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.hero button:hover {
+  background: #333;
+}
+
+/* ================= FEATURED ================= */
+.featured {
+  padding: 60px 20px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+/* FLEX LAYOUT */
+.featured-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.top-row {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.bottom-row {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+/* ================= CARDS ================= */
+.card {
+  width: 220px;
+  background: white;
+  border-radius: 10px;
+  padding: 12px;
+  border: 1px solid #eee;
+  transition: 0.3s;
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.card h4 {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* HOVER */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* ================= BUTTON ================= */
+button {
+  margin-top: 10px;
+  padding: 8px 15px;
+  background: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #444;
+}
+
+/* ================= MODAL ================= */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+  width: 320px;
+  margin: 8% auto;
+  padding: 20px;
+  background: white;
+  text-align: center;
+  border-radius: 12px;
+}
+
+#modal-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* ================= CART ================= */
+.cart-panel {
+  position: fixed;
+  top: 0;
+  right: 0;   /* 🔥 must be 0 */
+  width: 300px;
+  height: 100%;
+  background: white;
+  padding: 20px;
+
+  transform: translateX(100%);
+  transition: transform 0.4s ease;
+
+  z-index: 1000;
+}
+
+.cart-panel.active {
+  transform: translateX(0);
+}
+
+/* OVERLAY */
+#overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
+  display: none;
+  z-index: 999;
+}
+
+body.cart-open #overlay {
+  display: block;
+}
+
+/* 🔥 BLUR EFFECT */
+body.cart-open {
+  overflow: hidden;
+}
+
+body.cart-open::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(6px);
+  background: rgba(0,0,0,0.2);
+  z-index: 998;
+}
+
+/* CHECKOUT */
+#checkout-page {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.checkout-box {
+  background: white;
+  padding: 25px;
+  width: 300px;
+}
+
+.checkout-box input,
+.checkout-box textarea {
+  width: 100%;
+  margin: 10px 0;
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+body.cart-open #overlay {
+  display: block;
+}
+
+/* ================= SECTIONS ================= */
+.about, .reviews, .newsletter {
+  padding: 60px;
+  text-align: center;
+  background: white;
+  margin-top: 20px;
+}
+
+.review-box {
+  background: #fafafa;
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 400px;
+  border: 1px solid #eee;
+}
+/*================ quick viev ================= */
+/* 🔥 BACKGROUND */
+.quick-view {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+
+  justify-content: center;
+  align-items: center;
+
+  z-index: 2000;
+}
+
+/* 🔥 BOX */
+.quick-box {
+  width: 320px;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+
+  animation: popup 0.3s ease;
+}
+
+/* 🔥 IMAGE */
+.quick-box img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* 🔥 CLOSE */
+.close-btn {
+  float: right;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* 🔥 BUTTON */
+.quick-box button {
+  margin-top: 10px;
+  padding: 10px;
+  background: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* 🔥 blur background when quick view open */
+body.quick-open {
+  overflow: hidden;
+}
+
+body.quick-open::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(6px);
+  background: rgba(0,0,0,0.25);
+  z-index: 1999;
+}
+
+/* 🔥 ANIMATION */
+@keyframes popup {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.cart-popup {
+  cursor: default;
+  position: fixed;
+  top: 13%;
+  left: 50%;
+
+  transform: translate(-50%, -60%);
+  background: black;
+  color: white;
+  padding: 14px 22px;
+  border-radius: 8px;
+  font-size: 15px;
+
+  opacity: 0;
+  transition: 0.3s ease;
+
+  z-index: 3000;
+}
+
+/* show */
+.cart-popup.show {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+/* ================= FOOTER ================= */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #777;
+  background: white;
+}

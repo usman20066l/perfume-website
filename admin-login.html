@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Login</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      background: #f7f7f7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      font-family: 'Poppins', sans-serif;
+      color: #111;
+    }
+
+    body.loaded {
+      opacity: 1;
+    }
+
+    .login-box {
+      background: white;
+      padding: 50px 40px;
+      width: 350px;
+      text-align: center;
+      border-radius: 8px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      letter-spacing: 2px;
+      margin-bottom: 30px;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px;
+      outline: none;
+      transition: 0.3s;
+      background: #fafafa;
+    }
+
+    input:focus {
+      border-color: black;
+      background: white;
+    }
+
+    input::placeholder {
+      color: #999;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 15px;
+      border: none;
+      background: black;
+      color: white;
+      font-size: 14px;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #333;
+    }
+
+    .line {
+      width: 40px;
+      height: 2px;
+      background: #c9a96e;
+      margin: 15px auto 25px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="login-box">
+  <h2>VELZORO</h2>
+  <div class="line"></div>
+
+  <input id="email" placeholder="Email">
+  <input id="password" type="password" placeholder="Password">
+
+  <button onclick="login()">LOGIN</button>
+  <button onclick="home()">HOME</button>
+</div>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAR0p6I6D_5sXERcm7t-wwXmqLP5p7-DwU",
+  authDomain: "velzoro.firebaseapp.com",
+  projectId: "velzoro"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+// 🔐 CHANGE THIS EMAIL TO YOUR ADMIN EMAIL
+const ADMIN_EMAIL = "babamakdum99@gmail.com";
+
+window.login = function() {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  // 🔒 BLOCK OTHER USERS
+  if (email !== ADMIN_EMAIL) {
+    alert("Access Denied ❌");
+    return;
+  }
+
+  signInWithEmailAndPassword(auth, email, password)
+    .then(() => {
+      window.location.href = "admin.html"; // 🔥 go to dashboard
+    })
+    .catch(() => {
+      alert("Login Failed ❌");
+    });
+};
+
+window.home = function() {
+  window.location.href = "index.html";
+};
+
+window.addEventListener("load", () => {
+  document.body.classList.add("loaded");
+});
+
+</script>
+
+</body>
+</html>
