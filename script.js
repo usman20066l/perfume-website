@@ -1,7 +1,11 @@
 // 🔥 FIREBASE IMPORT
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import { getFirestore, collection, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import {
+  getAuth,
+  onAuthStateChanged,
+  signInWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
 // 🔥 CONFIG
 const firebaseConfig = {
@@ -13,6 +17,30 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
+
+window.loginAdmin = async function () {
+
+  const email = document.getElementById("email").value;
+
+  const password = document.getElementById("password").value;
+
+  try {
+
+    await signInWithEmailAndPassword(auth, email, password);
+
+    alert("Login Successful");
+
+    window.location.href = "admin.html";
+
+  } catch (error) {
+
+    alert(error.message);
+
+    console.log(error);
+
+  }
+
+};
 
 // ================= ADMIN =================
 window.goAdmin = function() {
