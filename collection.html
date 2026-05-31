@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 
   <!-- Google tag (gtag.js) -->
@@ -31,101 +32,123 @@ src="https://www.facebook.com/tr?id=1381364310520569&ev=PageView&noscript=1"
 <!-- End Meta Pixel Code -->
   
   <title>Collection</title>
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+      n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1381364310520569');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1381364310520569&ev=PageView&noscript=1" /></noscript>
+  <!-- End Meta Pixel Code -->
+
   <link rel="stylesheet" href="collection.css">
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<nav>
-  <div class="nav-left">
-    <button onclick="goBack()" class="back-btn">⟵</button>
+  <!-- NAVBAR -->
+  <nav>
+    <div class="nav-left">
+      <button onclick="goBack()" class="back-btn">⟵</button>
+    </div>
+
+    <h2>VELZORO</h2>
+
+    <div class="nav-right">
+      <span id="cart-count" onclick="toggleCart()">🛒 0</span>
+    </div>
+  </nav>
+
+  <!-- CART -->
+  <div id="overlay" onclick="closeCart()"></div>
+
+  <div id="cart-panel" class="cart-panel">
+    <h3>Your Cart</h3>
+    <div id="cart-items"></div>
+    <p id="total">Total: ₹0</p>
+    <button onclick="openCheckout()">Checkout</button>
+    <button onclick="closeCart()">Close</button>
   </div>
 
-  <h2>VELZORO</h2>
+  <!-- TITLE -->
+  <h1 class="page-title">Our Collection</h1>
 
-  <div class="nav-right">
-    <span id="cart-count" onclick="toggleCart()">🛒 0</span>
-  </div>
-</nav>
+  <!-- CATEGORY -->
+  <div class="category-container">
 
-<!-- CART -->
-<div id="overlay" onclick="closeCart()"></div>
+    <div class="category-card" onclick="showCategory('attar')">
+      <img src="images/attar.jpg">
+      <div class="overlay-text">Attar Collection</div>
+    </div>
 
-<div id="cart-panel" class="cart-panel">
-  <h3>Your Cart</h3>
-  <div id="cart-items"></div>
-  <p id="total">Total: ₹0</p>
-  <button onclick="openCheckout()">Checkout</button>
-  <button onclick="closeCart()">Close</button>
-</div>
-
-<!-- TITLE -->
-<h1 class="page-title">Our Collection</h1>
-
-<!-- CATEGORY -->
-<div class="category-container">
-
-  <div class="category-card" onclick="showCategory('attar')">
-    <img src="images/attar.jpg">
-    <div class="overlay-text">Attar Collection</div>
-  </div>
-
-  <div class="category-card" onclick="showCategory('perfume')">
-    <img src="images/perfume.jpg">
-    <div class="overlay-text">Perfume Collection</div>
-  </div>
-
-</div>
-
-<!-- PRODUCTS -->
-<div id="product-container"></div>
-
-<!-- CHECKOUT -->
-<div id="checkout-page">
-  <div class="checkout-box">
-
-    <h2>Checkout</h2>
-
-    <input id="name" placeholder="Full Name">
-    <input id="phone" placeholder="Phone Number">
-    <input id="state" placeholder="State">
-    <input id="city" placeholder="City">
-    <textarea id="address" placeholder="Full Address"></textarea>
-
-    <div id="checkout-items"></div>
-    <p id="checkout-total">Total: ₹0</p>
-
-    <button onclick="placeOrder()">Place Order</button>
-    <button onclick="closeCheckout()">Cancel</button>
+    <div class="category-card" onclick="showCategory('perfume')">
+      <img src="images/perfume.jpg">
+      <div class="overlay-text">Perfume Collection</div>
+    </div>
 
   </div>
-</div>
 
-<!-- ================= QUICK VIEW MODAL ==================== -->
-<div id="quick-view" class="quick-view">
-  <div class="quick-box">
+  <!-- PRODUCTS -->
+  <div id="product-container"></div>
 
-    <span class="close-btn" onclick="closeQuick()">✕</span>
+  <!-- CHECKOUT -->
+  <div id="checkout-page">
+    <div class="checkout-box">
 
-    <img id="q-img">
+      <h2>Checkout</h2>
 
-    <h2 id="q-name"></h2>
-    <p id="q-desc"></p>
-    <h3 id="q-price"></h3>
+      <input id="name" placeholder="Full Name">
+      <input id="phone" placeholder="Phone Number">
+      <input id="state" placeholder="State">
+      <input id="city" placeholder="City">
+      <textarea id="address" placeholder="Full Address"></textarea>
 
-    <button id="q-add">Add to Cart</button>
+      <div id="checkout-items"></div>
+      <p id="checkout-total">Total: ₹0</p>
 
+      <button onclick="placeOrder()">Place Order</button>
+      <button onclick="closeCheckout()">Cancel</button>
+
+    </div>
   </div>
-</div>
 
-<div id="cart-popup" class="cart-popup">
-  Added to cart ✅
-</div>
+  <!-- ================= QUICK VIEW MODAL ==================== -->
+  <div id="quick-view" class="quick-view">
+    <div class="quick-box">
 
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-<script type="module" src="collection.js"></script>
-<script src="cart.js"></script>
+      <span class="close-btn" onclick="closeQuick()">✕</span>
+
+      <img id="q-img">
+
+      <h2 id="q-name"></h2>
+      <p id="q-desc"></p>
+      <h3 id="q-price"></h3>
+
+      <button id="q-add">Add to Cart</button>
+
+    </div>
+  </div>
+
+  <div id="cart-popup" class="cart-popup">
+    Added to cart ✅
+  </div>
+
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script type="module" src="collection.js"></script>
+  <script src="cart.js"></script>
 
 </body>
+
 </html>
