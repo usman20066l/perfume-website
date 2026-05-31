@@ -28,7 +28,10 @@ const db = getFirestore(app);
 const auth = getAuth(app);
 
 // 🔐 ADMIN EMAIL
-const ADMIN_EMAIL = "babamakdum99@gmail.com";
+const ADMIN_EMAILS = [
+  "babamakdum99@gmail.com",
+  "ansariusmangani6@gmail.com"
+];
 
 // 🔐 PROTECTION (NO LOOP FIX)
 let checked = false;
@@ -37,9 +40,9 @@ onAuthStateChanged(auth, (user) => {
 
   if (checked) return;
 
-  if (!user || user.email !== ADMIN_EMAIL) {
-    window.location.href = "admin-login.html";
-  }
+if (!user || !ADMIN_EMAILS.includes(user.email)) {
+  window.location.href = "admin-login.html";
+}
 
   checked = true;
 });
