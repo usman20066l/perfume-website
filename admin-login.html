@@ -1,38 +1,43 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-L3MW0YXSD4"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L3MW0YXSD4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-  gtag('config', 'G-L3MW0YXSD4');
-</script>
+    gtag('config', 'G-L3MW0YXSD4');
+  </script>
 
   <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1381364310520569');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1381364310520569&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-  
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+      n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1381364310520569');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1381364310520569&ev=PageView&noscript=1" /></noscript>
+  <!-- End Meta Pixel Code -->
+
   <title>Admin Login</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400&display=swap"
+    rel="stylesheet">
 
   <style>
     * {
@@ -63,7 +68,7 @@ src="https://www.facebook.com/tr?id=1381364310520569&ev=PageView&noscript=1"
       width: 350px;
       text-align: center;
       border-radius: 8px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
     }
 
     h2 {
@@ -119,64 +124,67 @@ src="https://www.facebook.com/tr?id=1381364310520569&ev=PageView&noscript=1"
     }
   </style>
 </head>
+
 <body>
 
-<div class="login-box">
-  <h2>VELZORO</h2>
-  <div class="line"></div>
+  <div class="login-box">
+    <h2>VELZORO</h2>
+    <div class="line"></div>
 
-  <input id="email" placeholder="Email">
-  <input id="password" type="password" placeholder="Password">
+    <input id="email" placeholder="Email">
+    <input id="password" type="password" placeholder="Password">
 
-  <button onclick="login()">LOGIN</button>
-  <button onclick="home()">HOME</button>
-</div>
+    <button onclick="login()">LOGIN</button>
+    <button onclick="home()">HOME</button>
+  </div>
 
-<script type="module">
+  <script type="module">
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyAR0p6I6D_5sXERcm7t-wwXmqLP5p7-DwU",
-  authDomain: "velzoro.firebaseapp.com",
-  projectId: "velzoro"
-};
+    const firebaseConfig = {
+      apiKey: "AIzaSyAR0p6I6D_5sXERcm7t-wwXmqLP5p7-DwU",
+      authDomain: "velzoro.firebaseapp.com",
+      projectId: "velzoro"
+    };
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
 
-// 🔐 CHANGE THIS EMAIL TO YOUR ADMIN EMAIL
-const ADMIN_EMAIL = "babamakdum99@gmail.com";
+    // 🔐 CHANGE THIS EMAIL TO YOUR ADMIN EMAIL
+    const ADMIN_EMAIL = "babamakdum99@gmail.com";
 
-window.login = function() {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
+    window.login = function () {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
 
-  // 🔒 BLOCK OTHER USERS
-  if (email !== ADMIN_EMAIL) {
-    alert("Access Denied ❌");
-    return;
-  }
+      // 🔒 BLOCK OTHER USERS
+      if (email !== ADMIN_EMAIL) {
+        alert("Access Denied ❌");
+        return;
+      }
 
-  signInWithEmailAndPassword(auth, email, password)
-    .then(() => {
-      window.location.href = "admin.html"; // 🔥 go to dashboard
-    })
-    .catch(() => {
-      alert("Login Failed ❌");
+      signInWithEmailAndPassword(auth, email, password)
+        .then(() => {
+          window.location.href = "admin.html"; // 🔥 go to dashboard
+        })
+        .catch((error) => {
+          console.log(error);
+          alert(error.message);
+        });
+    };
+
+    window.home = function () {
+      window.location.href = "index.html";
+    };
+
+    window.addEventListener("load", () => {
+      document.body.classList.add("loaded");
     });
-};
 
-window.home = function() {
-  window.location.href = "index.html";
-};
-
-window.addEventListener("load", () => {
-  document.body.classList.add("loaded");
-});
-
-</script>
+  </script>
 
 </body>
+
 </html>
