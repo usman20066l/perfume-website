@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
   <!-- Google tag (gtag.js) -->
@@ -40,137 +39,137 @@ src="https://www.facebook.com/tr?id=1381364310520569&ev=PageView&noscript=1"
 
 <body>
 
-  <!-- NAVBAR -->
-  <nav>
-    <h1 id="logo">VELZORO</h1>
-    <p class="tagline">“The Hidden Luxury”</p>
+<!-- NAVBAR -->
+<nav>
+  <h1 id="logo">VELZORO</h1>
+  <p class="tagline">“The Hidden Luxury”</p>
 
-    <div class="nav-right">
-      <button class="dashboard-btn" onclick="openDashboard()">Dashboard</button>
-      <button class="admin-btn" onclick="goAdmin()">Admin</button>
-      <span id="cart-count" onclick="toggleCart()">🛒 0</span>
-    </div>
-  </nav>
+  <div class="nav-right">
+    <button class="dashboard-btn" onclick="openDashboard()">Dashboard</button>
+    <button class="admin-btn" onclick="goAdmin()">Admin</button>
+    <span id="cart-count" onclick="toggleCart()">🛒 0</span>
+  </div>
+</nav>
 
-  <!-- HERO -->
-  <section class="hero fade-up">
-    <h1>VELZORO</h1>
-    <button onclick="window.location.href='collection.html'">
-      Explore Collection
-    </button>
-  </section>
+<!-- HERO -->
+<section class="hero fade-up">
+  <h1>VELZORO</h1>
+  <button onclick="window.location.href='collection.html'">
+    Explore Collection
+  </button>
+</section>
 
-  <!-- FEATURED -->
-  <section class="featured fade-up">
-    <h2>Our Collection</h2>
+<!-- FEATURED -->
+<section class="featured fade-up">
+  <h2>Our Collection</h2>
 
-    <div class="featured-grid">
-      <div class="top-row" id="top-row"></div>
-      <div class="bottom-row" id="bottom-row"></div>
-    </div>
-  </section>
+  <div class="featured-grid">
+    <div class="top-row" id="top-row"></div>
+    <div class="bottom-row" id="bottom-row"></div>
+  </div>
+</section>
 
-  <!-- ABOUT -->
-  <section class="about fade-up">
-    <h3>Our Story</h3>
-    <p>
-      Velzoro is more than fragrance — it is identity.
-      Crafted for those who command presence, every scent reflects power, elegance, and legacy. <br>
-      Founder Name : Usman Gani Ansari
-    </p>
-  </section>
+<!-- ABOUT -->
+<section class="about fade-up">
+  <h3>Our Story</h3>
+  <p>
+    Velzoro is more than fragrance — it is identity.  
+    Crafted for those who command presence, every scent reflects power, elegance, and legacy. <br>
+    Founder Name : Usman Gani Ansari
+  </p>
+</section>
 
-  <!-- REVIEWS -->
-  <section class="reviews fade-up">
-    <h3>Customer Experience</h3>
+<!-- REVIEWS -->
+<section class="reviews fade-up">
+  <h3>Customer Experience</h3>
 
-    <div class="review-box">
-      <p>"This perfume lasts all day. Absolute luxury!"</p>
-      <span>- Ayaan</span>
-    </div>
-
-    <div class="review-box">
-      <p>"Best fragrance under ₹1000. Premium feel!"</p>
-      <span>- Rahman</span>
-    </div>
-  </section>
-
-  <!-- NEWSLETTER -->
-  <section class="newsletter fade-up">
-    <h3>Join Our World</h3>
-    <p>Get exclusive offers & new launches</p>
-    <input type="email" placeholder="Enter your email">
-    <button>Subscribe</button>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2026 Velzoro. All rights reserved.</p>
-  </footer>
-
-  <!-- CART OVERLAY -->
-  <div id="overlay" onclick="closeCart()"></div>
-
-  <!-- CART PANEL -->
-  <div id="cart-panel" class="cart-panel">
-    <h4>Your Cart</h4>
-    <div id="cart-items"></div>
-    <h4 id="total">Total: ₹0</h4>
-    <button onclick="openCheckout()">Checkout</button>
-    <button onclick="closeCart()">Close</button>
+  <div class="review-box">
+    <p>"This perfume lasts all day. Absolute luxury!"</p>
+    <span>- Ayaan</span>
   </div>
 
-  <!-- CHECKOUT -->
-  <div id="checkout-page">
-    <div class="checkout-box">
-
-      <h2>Checkout</h2>
-
-      <input id="name" placeholder="Full Name">
-      <input id="phone" placeholder="Phone Number">
-      <input id="state" placeholder="State">
-      <input id="city" placeholder="City">
-      <textarea id="address" placeholder="Full Address"></textarea>
-
-      <div id="checkout-items"></div>
-      <p id="checkout-total">Total: ₹0</p>
-
-      <button onclick="placeOrder()">Place Order</button>
-      <button onclick="closeCheckout()">Cancel</button>
-
-    </div>
+  <div class="review-box">
+    <p>"Best fragrance under ₹1000. Premium feel!"</p>
+    <span>- Rahman</span>
   </div>
+</section>
 
-  <!-- QUICK VIEW -->
-  <div id="quick-view" class="quick-view">
-    <div class="quick-box">
+<!-- NEWSLETTER -->
+<section class="newsletter fade-up">
+  <h3>Join Our World</h3>
+  <p>Get exclusive offers & new launches</p>
+  <input type="email" placeholder="Enter your email">
+  <button>Subscribe</button>
+</section>
 
-      <span class="close-btn" onclick="closeQuick()">✕</span>
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Velzoro. All rights reserved.</p>
+</footer>
 
-      <img id="q-img" alt="Product Image">
+<!-- CART OVERLAY -->
+<div id="overlay" onclick="closeCart()"></div>
 
-      <h2 id="q-name"></h2>
-      <p id="q-desc"></p>
-      <h3 id="q-price"></h3>
+<!-- CART PANEL -->
+<div id="cart-panel" class="cart-panel">
+  <h4>Your Cart</h4>
+  <div id="cart-items"></div>
+  <h4 id="total">Total: ₹0</h4>
+  <button onclick="openCheckout()">Checkout</button>
+  <button onclick="closeCart()">Close</button>
+</div>
 
-      <button id="q-add">Add to Cart</button>
+<!-- CHECKOUT -->
+<div id="checkout-page">
+  <div class="checkout-box">
 
-    </div>
+    <h2>Checkout</h2>
+
+    <input id="name" placeholder="Full Name">
+    <input id="phone" placeholder="Phone Number">
+    <input id="state" placeholder="State">
+    <input id="city" placeholder="City">
+    <textarea id="address" placeholder="Full Address"></textarea>
+
+    <div id="checkout-items"></div>
+    <p id="checkout-total">Total: ₹0</p>
+
+    <button onclick="placeOrder()">Place Order</button>
+    <button onclick="closeCheckout()">Cancel</button>
+
   </div>
+</div>
 
-  <!-- CART POPUP -->
-  <div id="cart-popup" class="cart-popup">
-    Added to cart ✅
+<!-- QUICK VIEW -->
+<div id="quick-view" class="quick-view">
+  <div class="quick-box">
+
+    <span class="close-btn" onclick="closeQuick()">✕</span>
+
+    <img id="q-img" alt="Product Image">
+
+    <h2 id="q-name"></h2>
+    <p id="q-desc"></p>
+    <h3 id="q-price"></h3>
+
+    <button id="q-add">Add to Cart</button>
+
   </div>
+</div>
 
-  <!-- SCRIPTS -->
+<!-- CART POPUP -->
+<div id="cart-popup" class="cart-popup">
+  Added to cart ✅
+</div>
 
-  <!-- Razorpay -->
-  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<!-- SCRIPTS -->
 
-  <!-- 🔥 IMPORTANT ORDER -->
-  <script src="cart.js"></script>
-  <script type="module" src="script.js"></script>
+<!-- Razorpay -->
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<!-- 🔥 IMPORTANT ORDER -->
+<script src="cart.js"></script>
+<script type="module" src="script.js"></script>
 
 </body>
 </html>
